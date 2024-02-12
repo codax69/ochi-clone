@@ -3,7 +3,7 @@ import { GoDotFill } from "react-icons/go";
 const About = () => {
   return (
     <>
-      <div className="w-full h-auto bg-[#cdea68] rounded-tl-xl rounded-tr-xl">
+      <div data-scroll data-scroll-section data-scroll-speed="-.1" className="w-full h-auto bg-[#cdea68] rounded-tl-xl rounded-tr-xl">
         <div className="pt-40 pb-16 pl-12">
           <p className="About-text w-[74.666667%] text-[3.46666875rem] leading-none tracking-tight  text-[#212121]">
             {" "}

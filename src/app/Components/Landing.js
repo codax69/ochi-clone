@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { FaArrowUpLong } from "react-icons/fa6";
 import Label from "./Label";
+import { motion } from "framer-motion";
 const Landing = () => {
   const HeadTextArray = ["WE CREATE", "EYE-OPENING", "PRESENTATIONS"];
   const LeadPageFootArray = [
@@ -9,12 +11,21 @@ const Landing = () => {
   ];
   return (
     <div>
-      <div className="w-full h-screen  pt-14">
+      <div data-scroll data-scroll-section data-scroll-speed="-.6" className="w-full h-screen  pt-14">
         <div className="pt-28">
           {HeadTextArray.map((value, index) => {
             return (
               <div key={index} className="ml-12 flex ">
-                { index === 1 && <div className=' w-32 h-20 rounded-lg bg-white text-[#212121] mr-2'></div>}
+                {index === 1 && (
+                  <motion.div
+                    initial={{ width: "0" }}
+                    animate={{ width: "8rem" }}
+                    transition={{ ease: "backInOut", duration: 2 }}
+                    className=" w-32 h-20 rounded-lg bg-[#004d43] flex items-center justify-center text-[#212121] mr-2 overflow-hidden"
+                  >
+                    <img src="https://ochi.design/wp-content/uploads/2022/04/logo001.svg" alt="" />
+                  </motion.div>
+                )}
                 <h1 className="masker text-start uppercase leading-[7vw] tracking-tight text-8xl font-bold">
                   {value}
                 </h1>
@@ -32,16 +43,16 @@ const Landing = () => {
             );
           })}
           <div className="flex items-center gap-2">
-          <div className=" uppercase border-[1px] px-3 py-1 rounded-3xl font-light text-sm">
-            Star the Project{" "}
-          </div>
+            <div className=" uppercase border-[1px] px-3 py-1 rounded-3xl font-light text-sm">
+              Star the Project{" "}
+            </div>
             <button className=" border-[1px] p-[12px] text-center rounded-full">
               <FaArrowUpLong className="rotate-45" />
             </button>
           </div>
         </div>
         <div className=" absolute right-0 top-[15rem]">
-        <Label/>
+          <Label />
         </div>
       </div>
     </div>

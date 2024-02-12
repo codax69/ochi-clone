@@ -1,6 +1,13 @@
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 
 const Navbar = () => {
+  useEffect(() => {
+    window.addEventListener('mouseup',()=>{
+      console.log("moveup")
+    })
+  })
+  
   const navArray = ["service", "our work", "about us", "insights", "contact us"]
   return (
     <>
