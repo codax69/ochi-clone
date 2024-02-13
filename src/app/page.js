@@ -8,6 +8,7 @@ import Featured from './Components/Featured'
 import LocomotiveScroll from 'locomotive-scroll';
 import Card from './Components/Card'
 import Project from './Components/Project'
+import Footer from './Components/Footer'
 
 const page = () => {
   const locomotiveScroll = new LocomotiveScroll();
@@ -20,6 +21,7 @@ const page = () => {
     <Featured/>
     <Card/>
     <Project/>
+    <Footer/>
     </>
   )
 }

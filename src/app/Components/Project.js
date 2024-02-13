@@ -1,27 +1,38 @@
-import React from 'react'
-import Eyes from './Eyes'
+import React, { useState } from "react";
+import Eyes from "./Eyes";
+import { motion } from "framer-motion";
 
 const Project = () => {
-    let textArray = ["ready","to start","the project?"]
+  const [EnterMouse, setEnterMouse] = useState(false)
+  let textArray = ["ready", "to start", "the project?"];
   return (
     <>
-    <div className=' relative h-full w-full flex items-center bg-[#cdea68] justify-center '>
-        <div className='bg-[#cdea68] h-screen'>
-            {
-                textArray.map((text,index)=>{
-                   return <h2 className=' pt-12 font-bold text-[9vw] text-center -mb-16 text-[#212121] tracking-tighter uppercase' key={index}>{text}</h2>
-                })
-            }
-            <div className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-            <div className='flex gap-5'>
-               <Eyes/>
-               <Eyes/>
+      <div onMouseEnter={()=>setEnterMouse(true)}  className="relative h-full w-full flex items-center py-44 bg-[#cdea68] justify-center">
+        <div className="bg-[#cdea68] h-full">
+          {textArray.map((text, index) => {
+            return (
+              <div className=" overflow-hidden">
+                <motion.h2
+                  initial={{y:"100%"}}
+                  animate={EnterMouse && {y:"0"}}
+                  className="pt-8 font-bold translate-y-full text-[9vw] text-center text-[#212121] tracking-tighter uppercase"
+                  key={index}
+                >
+                  {text}
+                </motion.h2>
+              </div>
+            );
+          })}
+          <div className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div data-scroll data-scroll-section data-scroll-speed=".2" className="flex gap-5">
+              <Eyes />
+              <Eyes />
             </div>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;

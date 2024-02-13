@@ -11,7 +11,7 @@ const Landing = () => {
   ];
   return (
     <div>
-      <div data-scroll data-scroll-section data-scroll-speed="-.6" className="w-full h-screen  pt-14">
+      <div data-scroll data-scroll-section data-scroll-speed="-.3" className="w-full h-screen  pt-14">
         <div className="pt-28">
           {HeadTextArray.map((value, index) => {
             return (
