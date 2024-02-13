@@ -11,12 +11,12 @@ const Project = () => {
         <div className="bg-[#cdea68] h-full">
           {textArray.map((text, index) => {
             return (
-              <div className=" overflow-hidden">
+              <div key={index} className=" overflow-hidden">
                 <motion.h2
                   initial={{y:"100%"}}
                   animate={EnterMouse && {y:"0"}}
                   className="pt-8 font-bold translate-y-full text-[9vw] text-center text-[#212121] tracking-tighter uppercase"
-                  key={index}
+                  
                 >
                   {text}
                 </motion.h2>
