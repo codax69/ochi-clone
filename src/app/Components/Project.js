@@ -7,7 +7,7 @@ const Project = () => {
   let textArray = ["ready", "to start", "the project?"];
   return (
     <>
-      <div onMouseEnter={()=>setEnterMouse(true)}  className="relative h-full w-full flex items-center py-44 bg-[#cdea68] justify-center">
+      <div data-scroll data-scroll-section data-scroll-speed='.02' onMouseEnter={()=>setEnterMouse(true)}  className="relative h-full w-full flex items-center py-44 bg-[#cdea68] justify-center">
         <div className="bg-[#cdea68] h-full">
           {textArray.map((text, index) => {
             return (

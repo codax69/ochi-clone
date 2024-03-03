@@ -4,7 +4,7 @@ const Card = () => {
   return (
     <>
     <hr className='h-[1px] bg-white' />
-    <div className=' relative w-full h-screen flex px-12 gap-5 mt-32'>
+    <div data-scroll data-scroll-section data-scroll-speed='0.2' className=' relative w-full h-full flex px-12 gap-5 mt-32'>
        <div className='w-1/2 h-[26rem]'>
         <div className=" relative h-full w-full rounded-xl bg-[#004d43] flex items-center justify-center">
           <img src="https://ochi.design/wp-content/uploads/2022/04/logo001.svg" height={150} width={150} alt="" />

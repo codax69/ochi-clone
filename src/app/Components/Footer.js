@@ -1,38 +1,41 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import {Power4,Power3} from 'gsap/all'
+import { Power4, Power3 } from "gsap/all";
 
 const Footer = () => {
   const [slideUp, setSlideUp] = useState(false);
   return (
     <>
       <div
+        data-scroll
+        data-scroll-section
+        data-scroll-speed="0.2"
         onMouseEnter={() => setSlideUp(true)}
         className="relative flex w-full h-screen px-12 pt-32 pb-14"
       >
         <div className="w-1/2 flex-col justify-between">
           <div className="overflow-hidden">
             <div className="overflow-hidden">
-          <motion.h2 
-          initial={{y:"100%"}}
-          animate={slideUp ? {y:"0"}:{y:"100%"}}
-          transition={{ease:Power4.easeIn,delay:"0.5"}}
-          
-          className="text-8xl inline-block translate-y-full font-bold">
-            EYE-
-            </motion.h2>
+              <motion.h2
+                initial={{ y: "100%" }}
+                animate={slideUp ? { y: "0" } : { y: "100%" }}
+                transition={{ ease: Power4.easeIn, delay: "0.5" }}
+                className="text-8xl inline-block translate-y-full font-bold"
+              >
+                EYE-
+              </motion.h2>
             </div>
-            <br/>
+            <br />
             <div className="overflow-hidden">
-          <motion.h2 
-          initial={{y:"100%"}}
-          animate={slideUp ? {y:"0"}:{y:"100%"}}
-          transition={{ease:Power4.easeIn,delay:"0.5"}}
-          
-          className="text-8xl inline-block translate-y-full font-bold">
-            OPENING
-          </motion.h2>
-          </div>
+              <motion.h2
+                initial={{ y: "100%" }}
+                animate={slideUp ? { y: "0" } : { y: "100%" }}
+                transition={{ ease: Power4.easeIn, delay: "0.5" }}
+                className="text-8xl inline-block translate-y-full font-bold"
+              >
+                OPENING
+              </motion.h2>
+            </div>
           </div>
           <svg
             className="absolute bottom-8 left-12"
@@ -66,13 +69,14 @@ const Footer = () => {
         </div>
         <div className=" relative flex overflow-hidden w-1/2">
           <div className=" absolute overflow-hidden flex">
-          <motion.h2
-          initial={{y:"100%"}}
-          animate={slideUp?{y:"0"}:{y:"100%"}}
-          transition={{ease:Power3.easeIn,delay:"0.5"}}
-          className=" text-7xl inline-block translate-y-full font-bold">
-            PRESENTATIONS
-          </motion.h2>
+            <motion.h2
+              initial={{ y: "100%" }}
+              animate={slideUp ? { y: "0" } : { y: "100%" }}
+              transition={{ ease: Power3.easeIn, delay: "0.5" }}
+              className=" text-7xl inline-block translate-y-full font-bold"
+            >
+              PRESENTATIONS
+            </motion.h2>
           </div>
           <div className="absolute top-20 flex gap-80">
             <div className="flex flex-col gap-10 mt-12">

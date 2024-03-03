@@ -1,19 +1,27 @@
 'use client'
-import React, { useEffect } from "react";
-
+import React, { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
 const Navbar = () => {
-  useEffect(() => {
-    window.addEventListener('mouseup',()=>{
-      console.log("moveup")
-    })
-  })
-  
-  const navArray = ["service", "our work", "about us", "insights", "contact us"]
+  const [UnderLine, setUnderLine] = useState(null);
+  const [open, setOpen] = useState(true)
+  const navArray = ["service", "our work", "about us", "insights", "contact us"];
+const handleClick = () => {
+  setOpen(!open)
+}
+  const handleHover = (index) => {
+    setUnderLine(index);
+  };
+
+  const handleLeave = () => {
+    setUnderLine(null);
+  };
+
   return (
     <>
-      <div className="z-[99]  fixed w-full flex justify-between items-center px-12 pt-6">
+      <div className="z-[99] fixed w-screen lg:w-full flex px-4  justify-between items-center lg:px-12 pt-6">
         <div className="logo">
-          <svg
+        <svg
             width="72"
             height="30"
             viewBox="0 0 72 30"
@@ -42,23 +50,43 @@ const Navbar = () => {
             ></path>
           </svg>
         </div>
-        <ul className="navbar flex gap-10">
-          { navArray.map(
-            (value, index) => {
-              
-              return (
-                <li
-                  key={index}
-                  className={` capitalize font-light ${
-                    index === 4 && "pl-44"
-                  }`}
-                >
-                  {value}
-                </li>
-              );
-            }
-          )}
-        </ul>
+        <ol className="navbar  gap-10 hidden lg:flex">
+          {navArray.map((value, index) => {
+            return (
+              <li
+                onMouseEnter={() => handleHover(index)}
+                onMouseLeave={handleLeave}
+                key={index}
+                className={`relative capitalize font-light ${index === 4 && "ml-44"}`}
+              >
+                {value}
+                <span className={`block h-[1px] transition-all duration-500 ${UnderLine === index ? 'max-w-full bg-white' : 'max-w-0'}`}></span>
+              </li>
+            );
+          })}
+        </ol>
+        <div className="mr-3 lg:hidden" onClick={handleClick}>
+          {!open ? <IoMdClose size={35} /> : <GiHamburgerMenu size={35} />}
+        </div>
+        <nav
+        className={`fixed z-40 flex flex-col top-16 right-0 h-auto w-full bg-white transform ${
+          !open ? "block" : "hidden"
+        } transition-transform duration-300 ease-in-out filter drop-shadow-md lg:hidden`}
+      >
+  {
+    navArray.map((value,index)=>{
+      return  <a
+      key={index}
+      onClick={() => {
+        setOpen(!open);
+      }}
+      className="nav-link font-lg text-slate-900 font-semibold px-3 py-4 lg:hover:text-[#ffe100] hover:text-yellow-400"
+    >
+      {value}
+    </a>
+    })
+  }
+      </nav>
       </div>
     </>
   );
